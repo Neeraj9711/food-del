@@ -13,7 +13,7 @@ pipeline {
                     // Checkout your project repository from SCM
                     // This will be done automatically by Jenkins in the "Pipeline from SCM" setup
                     echo 'Installing dependencies...'
-                    sh 'npm install'  // Run npm install to install dependencies
+                    bat 'npm install'  // Run npm install to install dependencies using Windows batch
                 }
             }
         }
@@ -22,7 +22,7 @@ pipeline {
         stage('Run Tests') {
             steps {
                 echo 'Running tests...'
-                sh 'npm test'  // Run tests using npm test
+                bat 'npm test'  // Run tests using Windows batch command
             }
         }
 
@@ -30,7 +30,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building the project...'
-                sh 'npm run build'  // Example build command for a Node.js app
+                bat 'npm run build'  // Example build command for a Node.js app using Windows batch
             }
         }
 
@@ -39,7 +39,7 @@ pipeline {
             steps {
                 echo 'Deploying the app...'
                 // Add your deployment command here
-                sh './deploy.sh'  // Example: Deploy script
+                bat './deploy.bat'  // Example: Deploy script (use bat command for Windows)
             }
         }
     }
